@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use \App\Models\indikator;
 use \App\Models\indikator as Model;
 use App\Models\Kelurahan;
+use App\Models\Pencapaian; // Pastikan Anda mengimpor model Pencapaian
 
 
 class KelurahanController extends Controller
@@ -21,36 +22,34 @@ class KelurahanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Request $request)
     {
-        // Ambil data kelurahan dan indikator untuk dropdown
-        $kelurahansList = Kelurahan::all(); // Pastikan ini mengambil data kelurahan
-        $indikatorsList = Indikator::all(); // Ambil data indikator untuk dropdown
+        // Ambil semua kelurahan dan indikator untuk dropdown
+        $kelurahans = Kelurahan::all();
+        $indikators = Indikator::all();
 
-        // Ambil data kelurahan beserta indikatornya, dengan filter berdasarkan request (jika ada)
-        $kelurahanId = $request->input('kelurahan');
-        $indikatorId = $request->input('indikator');
+        // Ambil data pencapaian berdasarkan filter
+        $query = Pencapaian::query();
 
-        $kelurahans = Kelurahan::with('indikators')
-            ->when($kelurahanId, function ($query) use ($kelurahanId) {
-                return $query->where('id', $kelurahanId);
-            })
-            ->when($indikatorId, function ($query) use ($indikatorId) {
-                return $query->whereHas('indikators', function ($query) use ($indikatorId) {
-                    return $query->where('id', $indikatorId);
-                });
-            })
-            ->paginate(50); // Pagination hasilnya
+        if ($request->has('kelurahan_id') && $request->kelurahan_id != '') {
+            $query->where('kelurahan_id', $request->kelurahan_id);
+        }
 
-        // Kirim data ke view
-        return view('kelurahan.index', [
-            'kelurahans' => $kelurahans,
-            'kelurahansList' => $kelurahansList,
-            'indikatorsList' => $indikatorsList,
-            'routePrefix' => $this->routePrefix,  // Jika diperlukan untuk route
-            'title' => 'Data Kelurahan dan Indikator'  // Judul halaman
-        ]);
+        if ($request->has('indikator_id') && $request->indikator_id != '') {
+            $query->where('indikator_id', $request->indikator_id);
+        }
+        // Menggunakan paginate untuk membatasi jumlah data per halaman
+        $pencapaian = $query->paginate(8); // Mengambil 10 data per halaman
+        // Siapkan data untuk view
+        $data = compact('kelurahans', 'indikators', 'pencapaian');
+
+
+        // Menggunakan format baru untuk mengembalikan view
+        return view('Admin.' . $this->viewIndex, $data);
     }
+
+
 
 
 

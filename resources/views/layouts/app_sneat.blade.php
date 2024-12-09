@@ -64,6 +64,26 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('sneat') }}/assets/js/config.js"></script>
     <link rel ="stylesheet"  href="{{ asset('sneat') }}/assets/font/css/all.min.css)">
+    <style>
+      table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+
+      td {
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          max-width: 200px; /* Atur lebar maksimum sel */
+          white-space: normal; /* Memastikan teks membungkus */
+      }
+
+      .pagination {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+      }
+  </style>
+
   </head>
 
   <body>

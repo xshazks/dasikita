@@ -2,72 +2,81 @@
 
 @section('content')
 
+<form action="{{ route('data.index') }}" method="GET">
+    <label for="kelurahan_id">Kelurahan:</label>
+    <select name="kelurahan_id" id="kelurahan_id">
+        <option value="">-- Pilih Kelurahan --</option>
+        @if($kelurahans->isNotEmpty())
+        @foreach ($kelurahans as $kelurahan)
+        <option value="{{ $kelurahan->id }}">{{ $kelurahan->nama_kelurahan }}</option>
+        @endforeach
+        @else
+        <option value="">Tidak ada kelurahan</option>
+        @endif
+    </select>
+
+    <label for="indikator_id">Indikator:</label>
+    <select name="indikator_id" id="indikator_id">
+        <option value="">-- Pilih Indikator --</option>
+        @if($indikators->isNotEmpty())
+        @foreach ($indikators as $indikator)
+        <option value="{{ $indikator->id }}">{{ $indikator->nama_indikator }}</option>
+        @endforeach
+        @else
+        <option value="">Tidak ada indikator</option>
+        @endif
+    </select>
+
+    <button type="submit">Filter</button>
+</form>
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <h5 class="card-header">{{ $title }}</h5>
-                <form action="{{ route('kelurahan.index') }}" method="GET">
-                    <div>
-                        <label for="kelurahan">Pilih Kelurahan:</label>
-                        <select name="kelurahan" id="kelurahan">
-                            <option value="">Semua Kelurahan</option>
-                            @foreach($kelurahansList as $kelurahan)
-                                <option value="{{ $kelurahan->id }}" 
-                                        {{ request('kelurahan') == $kelurahan->id ? 'selected' : '' }}>
-                                    {{ $kelurahan->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label for="indikator">Pilih Indikator:</label>
-                        <select name="indikator" id="indikator">
-                            <option value="">Semua Indikator</option>
-                            @foreach($indikatorsList as $indikator)
-                                <option value="{{ $indikator->id }}" 
-                                        {{ request('indikator') == $indikator->id ? 'selected' : '' }}>
-                                    {{ $indikator->indikator }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-                
-                    <button type="submit">Filter</button>
-                </form>
-                
-                <table>
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Kelurahan</th>
-                            <th>Indikator</th>
-                            <th>Target 2023</th>
-                            <th>Pencapaian 2023</th>
-                            <th>Target 2024</th>
-                            <th>Pencapaian 2024</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($kelurahans as $kelurahan)
-                            @foreach($kelurahan->indikators as $indikator)
+                <div class="card-body">
+                    <div class="table-responsive text-nowrap">
+                        
+                        <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Kelurahan</th>
+                                <th>Indikator</th>
+                                <th>Target 2023</th>
+                                <th>Pencapaian 2023</th>
+                                <th>Target 2024</th>
+                                <th>Pencapaian 2024</th>
+                            </tr>
+                        </thead>
+                            <tbody>
+                                @if($pencapaian->isNotEmpty())
+                                @foreach ($pencapaian as $item)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $kelurahan->name }}</td>
-                                    <td>{{ $indikator->indikator }}</td>
-                                    <td>{{ $indikator->target_2023 }}</td>
-                                    <td>{{ $indikator->pencapaian_2023 }}</td>
-                                    <td>{{ $indikator->target_2024 }}</td>
-                                    <td>{{ $indikator->pencapaian_2024 }}</td>
+                                    <td>{{ $item->kelurahan->nama_kelurahan }}</td>
+                                    <td>{{ $item->indikator->nama_indikator }}</td>
+                                    <td>{{ $item->target_2023 }}</td>
+                                    <td>{{ $item->pencapaian_2023 }}</td>
+                                    <td>{{ $item->target_2024 }}</td>
+                                    <td>{{ $item->pencapaian_2024 }}</td>
                                 </tr>
-                            @endforeach
-                        @endforeach
-                    </tbody>
-                </table>
-                
-                {{ $kelurahans->links() }} <!-- Pagination Links -->
-                
+                                @endforeach
+                                @else
+                                <tr>
+                                    <td colspan="6">Tidak ada data pencapaian.</td>
+                                </tr>
+                                @endif
+                            </tbody>
+                    </table>
+                   </div> 
                 </div>
+                @foreach ($pencapaian as $item)
+                <div>
+                    <!-- Tampilkan data item di sini -->
+                    {{ $item->name }} <!-- Ganti dengan atribut yang sesuai -->
+                </div>
+            @endforeach
+            
+            <!-- Tautan untuk navigasi halaman -->
+            {{ $pencapaian->links() }}
+            
             </div>
         </div>
     </div>
