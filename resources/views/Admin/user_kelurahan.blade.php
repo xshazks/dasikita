@@ -41,9 +41,9 @@
                                 <th>Kelurahan</th>
                                 <th>Indikator</th>
                                 <th>Target 2023</th>
-                                <th>Pencapaian 2023</th>
+                                <th>Realisasi 2023</th>
                                 <th>Target 2024</th>
-                                <th>Pencapaian 2024</th>
+                                <th>Realisasi 2024</th>
                             </tr>
                         </thead>
                             <tbody>
