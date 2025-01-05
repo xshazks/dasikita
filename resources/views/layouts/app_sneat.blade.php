@@ -186,21 +186,6 @@
               </a>
           </li>
                  {{-- jika nama file kita didepannya user_ akan active --}}
-                 <li class="menu-item {{ \Route::is('indikator.*')? 'active' : '' }}"> 
-                  <a href="{{ route('indikator.index') }}" class="menu-link">
-                      <i class="menu-icon tf-icons bx bx-collection"></i>
-                      <div data-i18n="Basic">Data Indikator
-                         </div>
-                  </a>
-              </li>
-
-              <li class="menu-item {{ \Route::is('kelurahan.*')? 'active' : '' }}"> 
-                <a href="{{ route('kelurahan.index') }}" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-collection"></i>
-                    <div data-i18n="Basic">Data Indikator flter
-                       </div>
-                </a>
-            </li>
 
                             {{-- jika nama file kita didepannya user_ akan active --}}
                             <li class="menu-item {{ \Route::is('opd.*')? 'active' : '' }}"> 
@@ -210,34 +195,13 @@
                                   </div>
                               </a>
                           </li>
-        
-                      {{-- jika nama file kita didepannya user_ akan active --}}
-                      {{-- <li class="menu-item {{ \Route::is('program.*')? 'active' : '' }}"> 
-                        <a href="{{ route('program.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
-                            <div data-i18n="Basic">Data Nomenklatur Program
-                               </div>
-                        </a>
-                    </li> --}}
-                           {{-- jika nama file kita didepannya user_ akan active --}}
-                           {{-- <li class="menu-item {{ \Route::is('kegiatan.*')? 'active' : '' }}"> 
-                            <a href="{{ route('kegiatan.index') }}" class="menu-link">
+                          <li class="menu-item {{ \Route::is('kelurahan.*')? 'active' : '' }}"> 
+                            <a href="{{ route('kelurahan.index') }}" class="menu-link">
                                 <i class="menu-icon tf-icons bx bx-collection"></i>
-                                <div data-i18n="Basic">Data Nomenklatur Kegiatan
+                                <div data-i18n="Basic">Data Target Realisasi
                                    </div>
                             </a>
-                        </li> --}}
-                        
-                                         {{-- jika nama file kita didepannya user_ akan active --}}
-                                         {{-- <li class="menu-item {{ \Route::is('user.*')? 'active' : '' }}"> 
-                                          <a href="{{ route('user.index') }}" class="menu-link">
-                                              <i class="menu-icon tf-icons bx bx-collection"></i>
-                                              <div data-i18n="Basic">Komponen Anggaran Khusus Stunting
-                                                 </div>
-                                          </a>
-                                      </li>
-          --}}
-      
+                        </li>
             <!-- Cards -->
             <li class="menu-item">
               <a href="{{ route('logout') }}" class="menu-link">

@@ -14,8 +14,8 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama OPD terkait</th>
-                                <th>Deskripsi</th>
+                                <th>Indikator</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
