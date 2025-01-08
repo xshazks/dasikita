@@ -12,16 +12,34 @@
 
                  {{-- form nama --}}
                  <div class ="form-group">
-                    <label for="nama">Nama OPD Terkait</label>
-                    {!! Form::text('nama', null, ['class' => 'form-control', 'autofocus']) !!}
-                    <span class="text-danger">{{ $errors->first('nama') }}</span>
+                    <label for="program">Program</label>
+                    {!! Form::text('program', null, ['class' => 'form-control', 'autofocus']) !!}
+                    <span class="text-danger">{{ $errors->first('program') }}</span>
                  </div>
-                {{-- form hp --}}
-                <div class ="form-group">
-                    <label for="deskripsi">Bidang</label>
-                    {!! Form::text('deskripsi', null, ['class' => 'form-control']) !!}
-                    <span class="text-danger">{{ $errors->first('deskripsi') }}</span>
-                 </div>
+                  
+                <div class ="form-group">  
+                    <label for="kegiatan">Kegiatan</label>  
+                    {!! Form::text('kegiatan', null, ['class' => 'form-control']) !!}  
+                    <span class="text-danger">{{ $errors->first('kegiatan') }}</span>  
+                </div>  
+                  
+                <div class ="form-group">  
+                    <label for="sub_kegiatan">Sub Kegiatan</label>  
+                    {!! Form::text('sub_kegiatan', null, ['class' => 'form-control']) !!}  
+                    <span class="text-danger">{{ $errors->first('sub_kegiatan') }}</span>  
+                </div>  
+                  
+                <div class ="form-group">  
+                    <label for="anggaran">Anggaran</label>  
+                    {!! Form::text('anggaran', null, ['class' => 'form-control']) !!}  
+                    <span class="text-danger">{{ $errors->first('anggaran') }}</span>  
+                </div>  
+                  
+                <div class ="form-group">  
+                    <label for="komponen_belanja_khusus_stunting">Komponen belanja khusus stunting</label>  
+                    {!! Form::text('komponen_belanja_khusus_stunting', null, ['class' => 'form-control']) !!}  
+                    <span class="text-danger">{{ $errors->first('komponen_belanja_khusus_stunting') }}</span>  
+                </div>  
               
                  @if (\Route::is('Admin.create'))
                  {{-- form akses --}}

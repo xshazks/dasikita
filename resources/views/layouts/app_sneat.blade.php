@@ -82,6 +82,26 @@
           justify-content: center;
           margin-top: 20px;
       }
+      .custom-table th:nth-child(1),  
+      .custom-table td:nth-child(1) {  
+          width: 5%; /* Adjust as needed for the "No" column */  
+      }  
+        
+      .custom-table th:nth-child(2),  
+      .custom-table td:nth-child(2) {  
+          width: 70%; /* Adjust as needed for the "Indikator" column */  
+      }  
+        
+      .custom-table th:nth-child(3),  
+      .custom-table td:nth-child(3) {  
+          width: 10%; /* Adjust as needed for the "Aksi" column */  
+          text-align: center; /* Center the text in the "Aksi" column */  
+      }  
+      .custom-table td:nth-child(3) .btn {  
+          display: inline-block; /* Ensure buttons are inline-block for proper centering */  
+      }  
+
+
   </style>
 
   </head>

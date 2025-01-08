@@ -82,6 +82,44 @@ class Indikator extends Model
     ];
 }
 
+class Opds extends Model
+{
+    use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'program',
+        'kegiatan',
+        'sub_kegiatan',
+        'anggaran',
+        'komponen_belanja_khusus_stunting',
+    ];
+
+    protected $table = 'anggaran'; // Ensure this matches your actual table name
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        // No need for password or remember_token if not using authentication
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        // No need for email_verified_at if not using authentication
+    ];
+}
+
 class Opd extends Model
 {
     use HasFactory;
@@ -92,85 +130,11 @@ class Opd extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'nama',
-        'deskripsi',
+        'nama_indikator',
+
     ];
 
-    protected $table = 'opds'; // Ensure this matches your actual table name
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        // No need for password or remember_token if not using authentication
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        // No need for email_verified_at if not using authentication
-    ];
-}
-
-class program extends Model
-{
-    use HasFactory;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'id_opd',
-        'nama',
-        'indikator',
-        'target',
-    ];
-
-    protected $table = 'programs'; // Ensure this matches your actual table name
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        // No need for password or remember_token if not using authentication
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        // No need for email_verified_at if not using authentication
-    ];
-}
-
-class kegiatan extends Model
-{
-    use HasFactory;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'id_program',
-        'nama',
-        'indikator',
-        'target',
-    ];
-
-    protected $table = 'kegiatans'; // Ensure this matches your actual table name
+    protected $table = 'indikators'; // Ensure this matches your actual table name
 
     /**
      * The attributes that should be hidden for serialization.

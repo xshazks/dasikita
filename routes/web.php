@@ -49,6 +49,7 @@ Route::prefix('admin')->middleware(['auth', 'auth.Admin'])->group(function () { 
     Route::get('/kegiatan/create', [KegiatanController::class, 'create'])->name('kegiatan.create');
     Route::resource('kegiatan', KegiatanController::class);
     Route::get('/data', [KelurahanController::class, 'index'])->name('data.index');
+    Route::get('admin/opd/{id}', [OpdController::class, 'show'])->name('opd.show');
 });
 
 

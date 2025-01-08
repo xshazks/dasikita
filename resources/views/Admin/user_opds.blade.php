@@ -5,17 +5,20 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <h5 class="card-header">{{ $title }}</h5>
+                <h5 class="card-header">Komponen Anggaran</h5>
 
                 <div class="card-body">
-                  
+                    <a href="{{ route($routePrefix.'.create') }}" class="btn btn-primary btn-sm">Tambah Data</a>
                    <div class="table-responsive">
-                    <table class="table table-bordered custom-table">  
-
+                    <table class ="table table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Indikator</th>
+                                <th>Program</th>
+                                <th>Kegiatan</th>
+                                <th>Sub-Kegiatan</th>
+                                <th>Anggaran</th>
+                                <th>Komponen belanja khusus stunting</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -23,7 +26,11 @@
                             @forelse ($models as $item)
                               <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->nama_indikator }}</td>
+                                <td>{{ $item->program }}</td>
+                                <td>{{ $item->kegiatan }}</td>
+                                <td>{{ $item->sub_kegiatan }}</td>
+                                <td>{{ $item->anggaran}}</td>
+                                <td>{{ $item->komponen_belanja_khusus_stunting }}</td> 
                                 <td>
                                    
                                     {!! Form::open([
@@ -32,10 +39,13 @@
                                         'onsubmit' => 'return confirm("Yakin ingin menghapus data ini?")',
                                     ]) !!}
 
-                                    <a href="{{ route($routePrefix.'.show', $item->id) }}" class="btn btn-primary btn-sm">
+                                    <a href="{{ route($routePrefix.'.edit', $item->id) }}" class="btn btn-warning btn-sm">
                                         <i class="fa fa-edit"></i>
-                                        Detail
+                                        Edit
                                     </a>
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                               <i class="fa fa-trash"></i> Hapus
+                                    </button>
                                     {!! Form::close() !!}
 
                                 </td>
