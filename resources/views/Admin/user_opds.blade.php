@@ -16,7 +16,7 @@
                                 <th>No</th>
                                 <th>Program</th>
                                 <th>Kegiatan</th>
-                                <th>Sub-Kegiatan</th>
+                                <th>Perangkat Daerah</th>
                                 <th>Anggaran</th>
                                 <th>Komponen belanja khusus stunting</th>
                                 <th>Aksi</th>

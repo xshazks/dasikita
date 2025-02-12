@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use \App\Models\indikator;
 use \App\Models\indikator as Model;
-use App\Models\Kelurahan;
-use App\Models\Pencapaian; // Pastikan Anda mengimpor model Pencapaian
+use App\Models\kecamatan;
+use App\Models\datakec; // Pastikan Anda mengimpor model Pencapaian
 
 
 class KelurahanController extends Controller
@@ -26,23 +26,23 @@ class KelurahanController extends Controller
     public function index(Request $request)
     {
         // Ambil semua kelurahan dan indikator untuk dropdown
-        $kelurahans = Kelurahan::all();
+        $kecamatan = kecamatan::all();
         $indikators = Indikator::all();
 
         // Ambil data pencapaian berdasarkan filter
-        $query = Pencapaian::query();
+        $query = datakec::query();
 
-        if ($request->has('kelurahan_id') && $request->kelurahan_id != '') {
-            $query->where('kelurahan_id', $request->kelurahan_id);
+        if ($request->has('kecamatan_id') && $request->kecamatan_id != '') {
+            $query->where('kecamatan_id', $request->kecamatan_id);
         }
 
         if ($request->has('indikator_id') && $request->indikator_id != '') {
             $query->where('indikator_id', $request->indikator_id);
         }
         // Menggunakan paginate untuk membatasi jumlah data per halaman
-        $pencapaian = $query->paginate(8); // Mengambil 10 data per halaman
+        $datakec = $query->paginate(8); // Mengambil 10 data per halaman
         // Siapkan data untuk view
-        $data = compact('kelurahans', 'indikators', 'pencapaian');
+        $data = compact('kecamatan', 'indikators', 'datakec');
 
 
         // Menggunakan format baru untuk mengembalikan view

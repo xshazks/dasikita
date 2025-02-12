@@ -131,12 +131,11 @@
                       </g>
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                  <span class="app-brand-text demo text-body fw-bolder">DasiKita</span>
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Welcome to Sneat! 👋</h4>
-              <p class="mb-4">Please sign-in to your account and start the adventure</p>
+            <center> <h4 class="mb-2">WELCOME👋</h4></center>  
 
               <form method="POST" action="{{ route('login') }}">
                 @csrf

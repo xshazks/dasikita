@@ -24,7 +24,7 @@
                 </div>  
                   
                 <div class ="form-group">  
-                    <label for="sub_kegiatan">Sub Kegiatan</label>  
+                    <label for="sub_kegiatan">Perangkat Daerah</label>  
                     {!! Form::text('sub_kegiatan', null, ['class' => 'form-control']) !!}  
                     <span class="text-danger">{{ $errors->first('sub_kegiatan') }}</span>  
                 </div>  

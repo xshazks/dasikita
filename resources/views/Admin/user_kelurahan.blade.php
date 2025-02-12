@@ -3,15 +3,15 @@
 @section('content')
 
 <form action="{{ route('data.index') }}" method="GET">
-    <label for="kelurahan_id">Kelurahan:</label>
-    <select name="kelurahan_id" id="kelurahan_id">
-        <option value="">-- Pilih Kelurahan --</option>
-        @if($kelurahans->isNotEmpty())
-        @foreach ($kelurahans as $kelurahan)
-        <option value="{{ $kelurahan->id }}">{{ $kelurahan->nama_kelurahan }}</option>
+    <label for="kecamatan_id">Kecamatan:</label>
+    <select name="kecamatan_id" id="kecamatan_id">
+        <option value="">-- Pilih Kecamatan --</option>
+        @if($kecamatan->isNotEmpty())
+        @foreach ($kecamatan as $kecamatan)
+        <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama_kecamatan }}</option>
         @endforeach
         @else
-        <option value="">Tidak ada kelurahan</option>
+        <option value="">Tidak ada kecamatan</option>
         @endif
     </select>
 
@@ -38,23 +38,21 @@
                         <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Kelurahan</th>
+                                <th>kecamatan</th>
                                 <th>Indikator</th>
-                                <th>Target 2023</th>
+                                <th>Target Program</th>
                                 <th>Realisasi 2023</th>
-                                <th>Target 2024</th>
                                 <th>Realisasi 2024</th>
                             </tr>
                         </thead>
                             <tbody>
-                                @if($pencapaian->isNotEmpty())
-                                @foreach ($pencapaian as $item)
+                                @if($datakec->isNotEmpty())
+                                @foreach ($datakec as $item)
                                 <tr>
-                                    <td>{{ $item->kelurahan->nama_kelurahan }}</td>
+                                    <td>{{ $item->kecamatan->nama_kecamatan }}</td>
                                     <td>{{ $item->indikator->nama_indikator }}</td>
                                     <td>{{ $item->target_2023 }}</td>
                                     <td>{{ $item->pencapaian_2023 }}</td>
-                                    <td>{{ $item->target_2024 }}</td>
                                     <td>{{ $item->pencapaian_2024 }}</td>
                                 </tr>
                                 @endforeach
@@ -67,7 +65,7 @@
                     </table>
                    </div> 
                 </div>
-                @foreach ($pencapaian as $item)
+                @foreach ($datakec as $item)
                 <div>
                     <!-- Tampilkan data item di sini -->
                     {{ $item->name }} <!-- Ganti dengan atribut yang sesuai -->
@@ -75,10 +73,11 @@
             @endforeach
             
             <!-- Tautan untuk navigasi halaman -->
-            {{ $pencapaian->links() }}
+            {{ $datakec->links() }}
             
             </div>
         </div>
     </div>
 </div>
 @endsection
+

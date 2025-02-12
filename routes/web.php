@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BerandaAdminController;
 use App\Http\Controllers\BerandaPnsController;
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\IndikatorController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KelurahanController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Psy\VarDumper\PresenterAware;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -56,12 +58,12 @@ Route::prefix('admin')->middleware(['auth', 'auth.Admin'])->group(function () { 
 
 
 Route::prefix('pns')->middleware(['auth', 'auth.Pns'])->group(function () { //ini route khusus untuk pns
-    Route::get('beranda', [BerandaPnsController::class, 'index'])->name('Pns.beranda');
+
 });
 
 Route::get('logout', function () {
     Auth::logout();
-    return redirect('login'); // Redirect to the desired route after logout
+    return redirect('/'); // Redirect to the desired route after logout
 })->name('logout'); // Naming the route
 
 use App\Http\Controllers\Auth\RegisterController; // Adjust the path according to your controller

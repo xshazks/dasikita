@@ -427,9 +427,9 @@
         width: 130,
         type: 'donut'
       },
-      labels: ['Electronic', 'Sports', 'Decor', 'Fashion'],
-      series: [85, 15, 50, 50],
-      colors: [config.colors.primary, config.colors.secondary, config.colors.info, config.colors.success],
+      labels: ['Dinas Ketahanan Pangan dan Pertanian',  'Dinas Komunikasi dan Informatika','Dinas Pemberdayaan Perempuan dan Perlindungan Anak', 'Dinas lainnya'],
+      series: [4, 3, 3, 1],
+      colors: [config.colors.primary, config.colors.success,config.colors.info, config.colors.secondary],
       stroke: {
         width: 5,
         colors: cardColor
@@ -437,7 +437,7 @@
       dataLabels: {
         enabled: false,
         formatter: function (val, opt) {
-          return parseInt(val) + '%';
+          return parseInt(val) + 'program';
         }
       },
       legend: {
@@ -462,7 +462,7 @@
                 color: headingColor,
                 offsetY: -15,
                 formatter: function (val) {
-                  return parseInt(val) + '%';
+                  return parseInt(val) + 'program';
                 }
               },
               name: {
@@ -473,9 +473,9 @@
                 show: true,
                 fontSize: '0.8125rem',
                 color: axisColor,
-                label: 'Weekly',
+                label: 'Program',
                 formatter: function (w) {
-                  return '38%';
+                  return '22';
                 }
               }
             }
@@ -558,7 +558,7 @@
         }
       },
       xaxis: {
-        categories: ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        categories: ['', '2017', '2018', '2019', '2020', '2021','2022','2023'],
         axisBorder: {
           show: false
         },
@@ -660,3 +660,4 @@
     weeklyExpenses.render();
   }
 })();
+
