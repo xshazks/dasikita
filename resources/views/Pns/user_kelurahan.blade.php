@@ -1,11 +1,10 @@
-@extends('layouts.app_sneat')
+@extends('layouts.app_sneat_pns')
 
 @section('content')
-
 <div style="margin-bottom: 40px;">
     <canvas id="chartPencapaian"></canvas>
 </div>
-<form action="{{ route('data.index') }}" method="GET">
+<form action="{{ route('data_pns.index') }}" method="GET">
     <label for="kecamatan_id">Kecamatan:</label>
     <select name="kecamatan_id" id="kecamatan_id" style="padding: 10px; margin-bottom: 20px;border: 1px solid #d9d4d4;">
         <option value="">-- Pilih Kecamatan --</option>

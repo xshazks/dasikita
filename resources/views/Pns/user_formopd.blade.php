@@ -1,4 +1,4 @@
-@extends('layouts.app_sneat')
+@extends('layouts.app_sneat_pns')
 
 @section('content')
 
@@ -51,6 +51,7 @@
                     </select>
                     <span class="text-danger">{{ $errors->first('indikator_id') }}</span>
                 </div>
+
 
                 @if (\Route::is('Admin.create'))
                 {{-- form akses --}}

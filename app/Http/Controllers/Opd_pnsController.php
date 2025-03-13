@@ -3,19 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Indikator;
 use Illuminate\Http\Request;
 use \App\Models\Opd as Model;
 use \App\Models\Opds as Modelss;
 
 
 
-class OpdController extends Controller
+class Opd_pnsController extends Controller
 {
     private $viewIndex = 'user_opd';
     private $viewCreate = 'user_formopd';
     private $viewEdit = 'user_formopd';
     private $viewShow = 'user_opds';
-    private $routePrefix = 'opd';
+    private $routePrefix = 'opd-pns';
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +24,7 @@ class OpdController extends Controller
      */
     public function index()
     {
-        return view('Admin.' . $this->viewIndex, [
+        return view('Pns.' . $this->viewIndex, [
             'models' => Model::latest()->paginate(50), // No filtering
             'routePrefix' => $this->routePrefix,
             'title' => 'Data OPD Terkait'
@@ -37,7 +38,11 @@ class OpdController extends Controller
      */
     public function create()
     {
+
+        // $test = Model::all();
+        // dd($test);
         $data = [
+
             'indikators' => Model::all(),
             'model' => new Modelss(),
             'method' => 'POST',
@@ -45,7 +50,7 @@ class OpdController extends Controller
             'button' => 'SIMPAN',
             'title' => 'Form Data OPD Terkait'
         ];
-        return view('Admin.' . $this->viewCreate, $data);
+        return view('Pns.' . $this->viewCreate, $data);
 
         //
     }
@@ -76,8 +81,8 @@ class OpdController extends Controller
         // Redirect ke halaman detail dari model yang baru saja dibuat
 
         // $data_indikators = Modelss::where('indikator_id', $model->indikator_id)->latest()->paginate(50);
-        // return redirect()->route('opd.show', ['opd' => $model->indikator_id]);
-        return redirect()->route('opd.show', ['id' => $model->indikator_id]);
+        // return redirect()->route('opd-pns.show', ['opd' => $model->indikator_id]);
+        return redirect()->route('opd-pns.show', ['opd_pn' => $model->indikator_id]);
     }
 
 
@@ -89,9 +94,12 @@ class OpdController extends Controller
      */
     public function show($id)
     {
-        //
-        return view('Admin.' . $this->viewShow, [
+        // $model = Modelss::findOrFail($id);
+        // dd($model);
+
+        return view('Pns.' . $this->viewShow, [
             'models' => Modelss::where('indikator_id', $id)->latest()->paginate(50), // No filtering
+            // 'model' => $model,
             'routePrefix' => $this->routePrefix,
             'title' => 'Data OPD Terkait'
         ]);
@@ -115,7 +123,7 @@ class OpdController extends Controller
             'button' => 'UPDATE',
             'title' => 'Form Data OPD Terkait'
         ];
-        return view('Admin.' . $this->viewEdit, $data);
+        return view('Pns.' . $this->viewEdit, $data);
     }
 
     /**
@@ -141,7 +149,7 @@ class OpdController extends Controller
         $model->fill($requestData);
         $model->save();
         flash('Data berhasil disimpan');
-        return redirect()->route('opd.show', ['id' => $model->indikator_id]);
+        return redirect()->route('opd-pns.show', ['opd_pn' => $model->indikator_id]);
 
         // return redirect()->route('opd.show', ['id' => $model->id]);
     }

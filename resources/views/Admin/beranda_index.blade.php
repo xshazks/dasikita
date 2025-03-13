@@ -20,7 +20,7 @@
                                     {{ session('status') }}
                                 </div>
                                 @endif
-            
+
                                 {{ __('You are logged in!') }}
                             </div>
                           </div>
@@ -45,7 +45,7 @@
 
                   {{-- card 1 --}}
                   <div class="col-lg-4 col-md-4 order-1">
-                    
+
                     <div class="row">
                       <div class="col-lg-6 col-md-12 col-6 mb-4">
                         <div class="card">
@@ -88,7 +88,7 @@
                       </div>
                     </div>
                   </div>
- 
+
                   {{-- card 3 --}}
                   <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
                     <div class="row">
@@ -137,12 +137,12 @@
                   </div>
                 </div>
 
-                
+
                 <div class="row">
 
 
 
-                  
+
                   <!-- Order Statistics -->
                   <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
                     <div class="card h-100">
@@ -150,7 +150,7 @@
                         <div class="card-title mb-0">
                           <h5 class="m-0 me-2">Perangkat Daerah PJ</h5>
                         </div>
-                        
+
                       </div>
                       <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
@@ -171,14 +171,14 @@
                             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                               <div class="me-2">
                                 <h6 class="mb-0">Dinas Ketahanan Pangan dan Pertanian</h6>
-                 
+
                               </div>
                               <div class="user-progress">
                                 <small class="fw-semibold">4 program</small>
                               </div>
                             </div>
                           </li>
-               
+
                           <li class="d-flex mb-4 pb-1">
                             <div class="avatar flex-shrink-0 me-3">
                               <span class="avatar-initial rounded bg-label-info"><i class="bx bx-happy"></i></span>
@@ -225,11 +225,11 @@
                     </div>
                   </div>
                   <!--/ Order Statistics -->
-  
+
                   <!-- Expense Overview -->
                   <div class="col-md-6 col-lg-4 order-1 mb-4">
                     <div class="card h-100">
-                      
+
                       <div class="card-body px-0">
                         <div class="tab-content p-0">
                           <div class="tab-pane fade show active" id="navs-tabs-line-card-income" role="tabpanel">
@@ -241,7 +241,7 @@
                             <div id="incomeChart"></div>
                             <div class="d-flex justify pt-4 gap-2">
                               <div class="flex-shrink-0">
-                     
+
                               </div>
                               <div>
                                 <ul>
@@ -256,7 +256,7 @@
                     </div>
                   </div>
                   <!--/ Expense Overview -->
-  
+
                   <!-- Transactions -->
                   <div class="col-md-6 col-lg-4 order-2 mb-4">
                     <div class="card h-100">

@@ -198,14 +198,14 @@
                 <ul class="menu-inner py-1 mt-4" style="background-color: #d0f4de;">
                     <!-- Dashboard -->
                     <li class="menu-item {{ \Route::is('Admin.beranda')? 'active' : '' }}">
-                        <a href="{{ route('Admin.beranda') }}" class="menu-link">
+                        <a href="{{ route('Pns.beranda') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Beranda</div>
                         </a>
                     </li>
 
 
-                    <li class="menu-item {{ \Route::is('admin1.*')? 'active' : '' }}">
+                    <!-- <li class="menu-item {{ \Route::is('admin1.*')? 'active' : '' }}">
                         <a href="{{ route('admin1.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-collection"></i>
                             <div data-i18n="Basic">Data Admin
@@ -220,18 +220,18 @@
                             </div>
                         </a>
                     </li>
-                    {{-- jika nama file kita didepannya user_ akan active --}}
+                    {{-- jika nama file kita didepannya user_ akan active --}} -->
 
                     {{-- jika nama file kita didepannya user_ akan active --}}
                     <li class="menu-item {{ \Route::is('opd.*')? 'active' : '' }}">
-                        <a href="{{ route('opd.index') }}" class="menu-link">
+                        <a href="{{ route('opd-pns.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-collection"></i>
                             <div data-i18n="Basic">Data OPD
                             </div>
                         </a>
                     </li>
                     <li class="menu-item {{ \Route::is('kelurahan.*')? 'active' : '' }}">
-                        <a href="{{ route('kelurahan.index') }}" class="menu-link">
+                        <a href="{{ route('kelurahan-pns.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-collection"></i>
                             <div data-i18n="Basic">Data Target Realisasi
                             </div>

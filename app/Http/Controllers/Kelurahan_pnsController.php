@@ -10,7 +10,7 @@ use App\Models\kecamatan;
 use App\Models\datakec; // Pastikan Anda mengimpor model Pencapaian
 
 
-class KelurahanController extends Controller
+class Kelurahan_pnsController extends Controller
 {
     private $viewIndex = 'user_kelurahan';
     private $viewCreate = 'user_formindi';
@@ -22,6 +22,32 @@ class KelurahanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // public function index(Request $request)
+    // {
+    //     // Ambil semua kelurahan dan indikator untuk dropdown
+    //     $kecamatan = kecamatan::all();
+    //     $indikators = Indikator::all();
+
+    //     // Ambil data pencapaian berdasarkan filter
+    //     $query = datakec::query();
+
+    //     if ($request->has('kecamatan_id') && $request->kecamatan_id != '') {
+    //         $query->where('kecamatan_id', $request->kecamatan_id);
+    //     }
+
+    //     if ($request->has('indikator_id') && $request->indikator_id != '') {
+    //         $query->where('indikator_id', $request->indikator_id);
+    //     }
+    //     // Menggunakan paginate untuk membatasi jumlah data per halaman
+    //     $datakec = $query->paginate(8); // Mengambil 10 data per halaman
+    //     // Siapkan data untuk view
+    //     $data = compact('kecamatan', 'indikators', 'datakec');
+
+
+    //     // Menggunakan format baru untuk mengembalikan view
+    //     return view('Pns.' . $this->viewIndex, $data);
+    // }
 
     public function index(Request $request)
     {
@@ -52,7 +78,7 @@ class KelurahanController extends Controller
         ];
 
         // Kirim data ke view
-        return view('Admin.' . $this->viewIndex, compact('kecamatan', 'indikators', 'datakec', 'chartData'));
+        return view('Pns.' . $this->viewIndex, compact('kecamatan', 'indikators', 'datakec', 'chartData'));
     }
 
 
@@ -74,7 +100,7 @@ class KelurahanController extends Controller
             'button' => 'SIMPAN',
             'title' => 'Form Data Indikator'
         ];
-        return view('Admin.' . $this->viewCreate, $data);
+        return view('Pns.' . $this->viewCreate, $data);
 
         //
     }
@@ -127,7 +153,7 @@ class KelurahanController extends Controller
             'button' => 'UPDATE',
             'title' => 'Form Data Indikator'
         ];
-        return view('Admin.' . $this->viewEdit, $data);
+        return view('Pns.' . $this->viewEdit, $data);
     }
 
     /**

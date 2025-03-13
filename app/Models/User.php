@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Notifications\ResetPasswordNotification;
 
 class User extends Authenticatable
 {
@@ -45,6 +46,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // public function sendPasswordResetNotification($token)
+    // {
+    //     $this->notify(new ResetPasswordNotification($token));
+    // }
 }
 
 class Indikator extends Model
@@ -97,6 +103,7 @@ class Opds extends Model
         'sub_kegiatan',
         'anggaran',
         'komponen_belanja_khusus_stunting',
+        'indikator_id',
     ];
 
     protected $table = 'anggaran'; // Ensure this matches your actual table name

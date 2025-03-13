@@ -1,13 +1,16 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\BerandaAdminController;
 use App\Http\Controllers\BerandaPnsController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\IndikatorController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\Kelurahan_pnsController;
 use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\MendaliController;
+use App\Http\Controllers\Opd_pnsController;
 use App\Http\Controllers\OpdController;
 use App\Http\Controllers\PnsController;
 use App\Http\Controllers\PrestasiController;
@@ -18,6 +21,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Psy\VarDumper\PresenterAware;
+use App\Http\Controllers\Auth\RegisterController; // Adjust the path according to your controller
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 
 /*
@@ -58,7 +63,10 @@ Route::prefix('admin')->middleware(['auth', 'auth.Admin'])->group(function () { 
 
 
 Route::prefix('pns')->middleware(['auth', 'auth.Pns'])->group(function () { //ini route khusus untuk pns
-
+    Route::get('beranda', [BerandaPnsController::class, 'index'])->name('Pns.beranda');
+    Route::resource('opd-pns', Opd_pnsController::class);
+    Route::resource('kelurahan-pns', Kelurahan_pnsController::class);
+    Route::get('/data', [Kelurahan_pnsController::class, 'index'])->name('data_pns.index');
 });
 
 Route::get('logout', function () {
@@ -66,6 +74,14 @@ Route::get('logout', function () {
     return redirect('/'); // Redirect to the desired route after logout
 })->name('logout'); // Naming the route
 
-use App\Http\Controllers\Auth\RegisterController; // Adjust the path according to your controller
+
 
 Route::get('/register-sneat', [RegisterController::class, 'showRegistrationForm'])->name('register_sneat');
+
+Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+
+Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+
+Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+
+Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');

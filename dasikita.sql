@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 13, 2025 at 05:15 AM
+-- Generation Time: Feb 16, 2025 at 03:50 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `pelaporan`
+-- Database: `dasikita`
 --
 
 -- --------------------------------------------------------
@@ -35,15 +35,39 @@ CREATE TABLE `anggaran` (
   `anggaran` decimal(15,2) NOT NULL,
   `komponen_belanja_khusus_stunting` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `indikator_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `anggaran`
 --
 
-INSERT INTO `anggaran` (`id`, `program`, `kegiatan`, `sub_kegiatan`, `anggaran`, `komponen_belanja_khusus_stunting`, `created_at`, `updated_at`) VALUES
-(15, 'Program Pemberdayaan Masyarakat Bidang Kesehatan', 'Advokasi, Pemberdayaan, Kemitraan, Peningkatan Peran Serta Masyarakat dan Lintas Sektor Tingkat daerah Kabupaten/Kota', 'Dinas Kesehatan', 0.00, 'Belanja Makanan dan Minuman Rapat', '2025-02-09 05:44:37', '2025-02-09 05:44:37');
+INSERT INTO `anggaran` (`id`, `program`, `kegiatan`, `sub_kegiatan`, `anggaran`, `komponen_belanja_khusus_stunting`, `created_at`, `updated_at`, `indikator_id`) VALUES
+(15, 'Program Pemberdayaan Masyarakat Bidang Kesehatan', 'Advokasi, Pemberdayaan, Kemitraan, Peningkatan Peran Serta Masyarakat dan Lintas Sektor Tingkat daerah Kabupaten/Kota', 'Dinas Kesehatan', 0.00, 'Belanja Makanan dan Minuman Rapat', '2025-02-09 05:44:37', '2025-02-09 05:44:37', 1),
+(16, 'test', 'test', 'test', 1.00, 'test', '2025-02-16 00:19:06', '2025-02-16 00:19:06', 1),
+(17, 'test', 'test', 'test', 1.00, 'test', '2025-02-16 00:21:46', '2025-02-16 00:21:46', 1),
+(18, 'ss', 'sss', 'ss', 8.00, 'ss', '2025-02-16 00:56:28', '2025-02-16 00:56:28', 14),
+(19, 'ee', 'eee', 'ee', 9.00, 'asdf', '2025-02-16 00:56:52', '2025-02-16 00:56:52', 3),
+(22, 'fff', 'iii', 'asdf', 0.00, 'asdf', '2025-02-16 01:05:36', '2025-02-16 01:05:36', 2),
+(23, 'asdf', 'asdf', 'asdf', 8.00, 'asdfasdf', '2025-02-16 01:06:54', '2025-02-16 01:06:54', 15),
+(24, 'ttt', 'ttt', 'ttt', 4.00, 'ttt', '2025-02-16 01:07:29', '2025-02-16 01:16:00', 18);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `datakec`
+--
+
+CREATE TABLE `datakec` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `kecamatan_id` bigint(20) UNSIGNED NOT NULL,
+  `indikator_id` bigint(20) UNSIGNED NOT NULL,
+  `target_2023` decimal(10,2) NOT NULL,
+  `pencapaian_2023` decimal(10,2) NOT NULL,
+  `target_2024` decimal(10,2) NOT NULL,
+  `pencapaian_2024` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1479,6 +1503,18 @@ INSERT INTO `opds` (`id`, `nama`, `deskripsi`, `created_at`, `updated_at`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pencapaians`
 --
 
@@ -2395,9 +2431,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `nohp`, `akses`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'admin@gmail.com', '08553567890', 'admin', NULL, '$2y$10$FsSWBuRdORnBzh42zq4GtuRPzajSNKMcvUEJ1jpkPJ9z1XaNnqjyW', NULL, '2024-11-20 23:40:40', '2024-11-20 23:40:40'),
-(2, 'inu', 'inu@gmail.com', '082271829376', 'pns', NULL, '$2y$10$ShU3TYoHyJy/7f1VHq7RAe.DJEBxldzNOHhMxuKWUjyKmb71ST.Zi', NULL, '2024-11-20 23:41:51', '2024-11-20 23:41:51'),
+(2, 'inu', 'inu@gmail.com', '082271829376', 'pns', NULL, '$2y$10$fLRYTIfD3CroY.lH3JRCQ.ClGsNNmzfbkwKftn1ZIczsilhCRGnEm', 'B1y834AdJ2r6Ukk97UxrpsmvGOg9MhhRHygtfqoGalK4hzhEn8vIcJLLmrB8', '2024-11-20 23:41:51', '2025-02-16 07:48:14'),
 (4, 'bella', 'bella@gmail.com', '082238459243', 'admin', NULL, '$2y$10$l295qrmv7ayUwuFqiS8A6OHC/ccJH80guHbkJ3GwnKwklqyCm.2w6', NULL, '2025-02-09 05:34:25', '2025-02-09 05:34:25'),
-(5, 'sauki', 'sauki@gmail.com', '0877232823919', 'admin', NULL, '$2y$10$T.WIprOOfRhEyXod9gSjR.owXhmf6aGItp1P5YYRRA5iWhxVDWfTi', NULL, '2025-02-09 05:40:09', '2025-02-09 05:40:09');
+(5, 'sauki', 'sauki@gmail.com', '0877232823919', 'admin', NULL, '$2y$10$2fjo5uJLgbliOhWDyD5cfuCUq5SnN7npXZbVbzXsThkl3efhhXpuG', NULL, '2025-02-09 05:40:09', '2025-02-09 05:40:09');
 
 --
 -- Indexes for dumped tables
@@ -2407,6 +2443,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `nohp`, `akses`, `email_verified_at`
 -- Indexes for table `anggaran`
 --
 ALTER TABLE `anggaran`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `datakec`
+--
+ALTER TABLE `datakec`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2465,6 +2507,12 @@ ALTER TABLE `opds`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD PRIMARY KEY (`email`);
+
+--
 -- Indexes for table `pencapaians`
 --
 ALTER TABLE `pencapaians`
@@ -2487,7 +2535,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `anggaran`
 --
 ALTER TABLE `anggaran`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `datakec`
+--
+ALTER TABLE `datakec`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `datakecs`
@@ -2558,12 +2612,6 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `komponen_anggarans`
---
-ALTER TABLE `komponen_anggarans`
-  ADD CONSTRAINT `komponen_anggarans_id_kegiatan_foreign` FOREIGN KEY (`id_kegiatan`) REFERENCES `kegiatans` (`id`);
 
 --
 -- Constraints for table `pencapaians`

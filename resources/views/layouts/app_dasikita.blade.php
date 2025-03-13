@@ -176,76 +176,7 @@
         <div class="layout-container">
             <!-- Menu -->
 
-            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-                <div class="app-brand demo">
-                    <a href="index.html" class="app-brand-link">
-                        <span class="app-brand-logo demo">
-                            <div class="app-brand justify-content-center">
-                                <a href="index.html" class="app-brand-link gap-2">
-                                    <img src="{{ asset('sneat') }}/images/logo.png" alt="Deskripsi Gambar" width="90" height="80">
-                                </a>
-                            </div>
-                        </span>
-                    </a>
-
-                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
-                        <i class="bx bx-chevron-left bx-sm align-middle"></i>
-                    </a>
-                </div>
-
-                <div class="menu-inner-shadow"></div>
-
-                <ul class="menu-inner py-1 mt-4" style="background-color: #d0f4de;">
-                    <!-- Dashboard -->
-                    <li class="menu-item {{ \Route::is('Admin.beranda')? 'active' : '' }}">
-                        <a href="{{ route('Admin.beranda') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">Beranda</div>
-                        </a>
-                    </li>
-
-
-                    <li class="menu-item {{ \Route::is('admin1.*')? 'active' : '' }}">
-                        <a href="{{ route('admin1.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
-                            <div data-i18n="Basic">Data Admin
-                            </div>
-                        </a>
-                    </li>
-                    {{-- jika nama file kita didepannya user_ akan active --}}
-                    <li class="menu-item {{ \Route::is('user.*')? 'active' : '' }}">
-                        <a href="{{ route('user.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
-                            <div data-i18n="Basic">Data PNS
-                            </div>
-                        </a>
-                    </li>
-                    {{-- jika nama file kita didepannya user_ akan active --}}
-
-                    {{-- jika nama file kita didepannya user_ akan active --}}
-                    <li class="menu-item {{ \Route::is('opd.*')? 'active' : '' }}">
-                        <a href="{{ route('opd.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
-                            <div data-i18n="Basic">Data OPD
-                            </div>
-                        </a>
-                    </li>
-                    <li class="menu-item {{ \Route::is('kelurahan.*')? 'active' : '' }}">
-                        <a href="{{ route('kelurahan.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
-                            <div data-i18n="Basic">Data Target Realisasi
-                            </div>
-                        </a>
-                    </li>
-                    <!-- Cards -->
-                    <li class="menu-item">
-                        <a href="{{ route('logout') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
-                            <div data-i18n="Basic">Logout</div>
-                        </a>
-                    </li>
-                </ul>
-            </aside>
+            
             <!-- / Menu -->
 
             <!-- Layout container -->

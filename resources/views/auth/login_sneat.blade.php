@@ -135,7 +135,7 @@
                 </a>
               </div>
               <!-- /Logo -->
-            <center> <h4 class="mb-2">WELCOME👋</h4></center>  
+            <center> <h4 class="mb-2">WELCOME👋</h4></center>
 
               <form method="POST" action="{{ route('login') }}">
                 @csrf
@@ -175,6 +175,7 @@
                     <label class="form-check-label" for="remember-me"> Remember Me </label>
                   </div>
                 </div>
+                
                 <div class="mb-3">
                   <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                 </div>
